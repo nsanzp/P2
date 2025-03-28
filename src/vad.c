@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "pav_analysis.h"
 #include "vad.h"
 
 const float FRAME_TIME = 10.0F; /* in ms. */
@@ -31,7 +32,7 @@ typedef struct {
  * TODO: Delete and use your own features!
  */
 
-Features compute_features(const float *x, int N) {
+Features compute_features(const float *x, int N) { //modificar esto.
   /*
    * Input: x[i] : i=0 .... N-1 
    * Ouput: computed features
@@ -42,7 +43,8 @@ Features compute_features(const float *x, int N) {
    * For the moment, compute random value between 0 and 1 
    */
   Features feat;
-  feat.zcr = feat.p = feat.am = (float) rand()/RAND_MAX;
+   feat.p = compute_power(x,N); //mejor resultado con potencia en dB.
+  //feat.zcr = feat.p = feat.am = (float) rand()/RAND_MAX;
   return feat;
 }
 
@@ -77,28 +79,29 @@ unsigned int vad_frame_size(VAD_DATA *vad_data) {
  * using a Finite State Automata
  */
 
-VAD_STATE vad(VAD_DATA *vad_data, float *x) {
+VAD_STATE vad(VAD_DATA *vad_data, float *x, float alpha0) {
 
   /* 
    * TODO: You can change this, using your own features,
    * program finite state automaton, define conditions, etc.
    */
 
-  Features f = compute_features(x, vad_data->frame_length);
+  Features f = compute_features(x, vad_data->frame_length); //calculamos features de la trama.
   vad_data->last_feature = f.p; /* save feature, in case you want to show */
 
-  switch (vad_data->state) {
+  switch (vad_data->state) { 
   case ST_INIT:
     vad_data->state = ST_SILENCE;
+    vad_data->p0 = f.p;
     break;
 
   case ST_SILENCE:
-    if (f.p > 0.95)
+    if (f.p > vad_data->p0+alpha0) //p de power.
       vad_data->state = ST_VOICE;
     break;
 
-  case ST_VOICE:
-    if (f.p < 0.01)
+  case ST_VOICE: 
+    if (f.p < vad_data->p0+alpha0)
       vad_data->state = ST_SILENCE;
     break;
 
@@ -115,4 +118,4 @@ VAD_STATE vad(VAD_DATA *vad_data, float *x) {
 
 void vad_show_state(const VAD_DATA *vad_data, FILE *out) {
   fprintf(out, "%d\t%f\n", vad_data->state, vad_data->last_feature);
-}
+} //fijar umbral en función de ruido de fondo.

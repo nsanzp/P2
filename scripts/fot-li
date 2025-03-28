@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for alpha0 in $(seq 5 0.1 7); do
+    echo -ne "$alpha0:\t"
+    scripts/run_vad.sh $alpha0 | grep TOTAL;
+done

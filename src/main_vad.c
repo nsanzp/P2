@@ -8,7 +8,7 @@
 
 #define DEBUG_VAD 0x1
 
-int main(int argc, char *argv[]) { //comentario
+int main(int argc, char *argv[]) {
   int verbose = 0; /* To show internal state of vad: verbose = DEBUG_VAD; */
 
   SNDFILE *sndfile_in, *sndfile_out = 0;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) { //comentario
   float frame_duration;   /* in seconds */
   unsigned int t, last_t; /* in frames */
 
-  char	*input_wav, *output_vad, *output_wav;
+  char	*input_wav, *output_vad, *output_wav, *a;
 
   DocoptArgs args = docopt(argc, argv, /* help */ 1, /* version */ "2.0");
 
@@ -32,7 +32,9 @@ int main(int argc, char *argv[]) { //comentario
   input_wav  = args.input_wav;
   output_vad = args.output_vad;
   output_wav = args.output_wav;
-
+  a = args.alpha0;
+  float alpha0 = strtof(a, NULL);//passo a float
+  
   if (input_wav == 0 || output_vad == 0) {
     fprintf(stderr, "%s\n", args.usage_pattern);
     return -1;
@@ -81,7 +83,7 @@ int main(int argc, char *argv[]) { //comentario
       /* TODO: copy all the samples into sndfile_out */
     }
 
-    state = vad(vad_data, buffer);
+    state = vad(vad_data, buffer, alpha0); //determina en qué estado estoy.
     if (verbose & DEBUG_VAD) vad_show_state(vad_data, stdout);
 
     /* TODO: print only SILENCE and VOICE labels */
