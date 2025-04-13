@@ -140,12 +140,12 @@ Ejercicios
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
 
-  Para realizar este análisis, se usa el audio **pav_2171.wav**, que es el mismo usado para la primera práctica.
+  Para realizar este análisis, se usa el audio **pav_2171.wav**, que es el mismo usado la primera práctica.
 
   A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual*, su *potencia* y, finalmente, la *tasa de cruces por cero*:
 
   ![alt text](<Screenshot 2025-04-13 at 21.01.38.jpg>)
-  
+
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
