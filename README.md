@@ -2,7 +2,7 @@ PAV - P2: detección de actividad vocal (VAD)
 ============================================
 
 
-Natalia Sanz y Jacobo
+Natalia Sanz y Jacobo Ghaffar
 ----------------------------------
 
 Esta práctica se distribuye a través del repositorio GitHub [Práctica 2](https://github.com/albino-pav/P2),
@@ -140,6 +140,11 @@ Ejercicios
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
 
+  Para realizar este análisis, se usa el audio **pav_2171.wav**, que es el mismo usado para la primera práctica.
+
+  A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual*, su *potencia* y, finalmente, la *tasa de cruces por cero*:
+
+  ([Parámetros señal]](<Screenshot 2025-04-13 at 21.01.38.png>))
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
