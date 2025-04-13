@@ -142,7 +142,7 @@ Ejercicios
 
   Para realizar este análisis, se usa el audio **pav_2171.wav**, que es el mismo usado en la primera práctica.
 
-  A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual*, su *potencia* y, finalmente, la *tasa de cruces por cero*:
+  A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual* de los segmentos, su *potencia* y, finalmente, la *tasa de cruces por cero*:
 
   ![alt text](<Screenshot 2025-04-13 at 21.01.38.jpg>)
 
