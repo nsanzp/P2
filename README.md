@@ -144,7 +144,8 @@ Ejercicios
 
   A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual*, su *potencia* y, finalmente, la *tasa de cruces por cero*:
 
-  ![Parámetros señal](<Screenshot 2025-04-13 at 21.01.38.png>)
+  ![alt text](<Screenshot 2025-04-13 at 21.01.38.jpg>)
+  
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
