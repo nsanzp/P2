@@ -80,30 +80,36 @@ int main(int argc, char *argv[]) {
     if  ((n_read = sf_read_float(sndfile_in, buffer, frame_size)) != frame_size) break;
 
     if (sndfile_out != 0) {
-      /* TODO: copy all the samples into sndfile_out */
+      /* TODO: copy all the samples into sndfile_out */ //done.
+      sf_write_float(sndfile_out, buffer, frame_size);//escriure buffer al fitxer de sortida.
     }
 
     state = vad(vad_data, buffer, alpha0); //determina en qué estado estoy.
     if (verbose & DEBUG_VAD) vad_show_state(vad_data, stdout);
 
-    /* TODO: print only SILENCE and VOICE labels */
+    /* TODO: print only SILENCE and VOICE labels */ //done.
     /* As it is, it prints UNDEF segments but is should be merge to the proper value */
-    if (state != last_state) {
-      if (t != last_t)
+    if (state != last_state && state != ST_UNDEF) { //no ens interesa l'estat UNDEF.
+      if (t != last_t && last_state != ST_UNDEF) //si no venim de l'estat UNDEF.
         fprintf(vadfile, "%.5f\t%.5f\t%s\n", last_t * frame_duration, t * frame_duration, state2str(last_state));
       last_state = state;
       last_t = t;
     }
 
     if (sndfile_out != 0) {
-      /* TODO: go back and write zeros in silence segments */
+      /* TODO: go back and write zeros in silence segments */ //done.
+      if (state == ST_SILENCE) {
+        sf_write_float(sndfile_out, buffer_zeros, frame_size);
+      } else {
+        sf_write_float(sndfile_out, buffer, frame_size);
+      }
     }
   }
 
   state = vad_close(vad_data);
-  /* TODO: what do you want to print, for last frames? */
+  /* TODO: what do you want to print, for last frames? */ //done.
   if (t != last_t)
-    fprintf(vadfile, "%.5f\t%.5f\t%s\n", last_t * frame_duration, t * frame_duration + n_read / (float) sf_info.samplerate, state2str(state));
+    fprintf(vadfile, "%.5f\t%.5f\t%s\n", last_t * frame_duration, t * frame_duration + n_read / (float) sf_info.samplerate, state2str((state == ST_UNDEF) ? last_state : state));//en cas que l'estat sigui UNDEF usem l'estat anterior conegut, sinó l'actual.
 
   /* clean up: free memory, close open files */
   free(buffer);
