@@ -184,6 +184,7 @@ Ejercicios
   Tras ejecutar el comando `scripts/vad_evaluation.pl db.v4/*/*lab` en la terminal, se ha obtenido este resultado:
 
     **************** Summary ****************
+  
   Recall V:477.71/495.55 96.40%   Precision V:477.71/541.05 88.29%   F-score V (2)  : 94.66%
   Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
   ===> TOTAL: 92.578%
