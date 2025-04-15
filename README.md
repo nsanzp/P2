@@ -144,8 +144,9 @@ Ejercicios
 
   A continuación, se muestra la gráfica con la *señal temporal* abajo, después el *etiquetado manual* de los segmentos, su *potencia* y, finalmente, la *tasa de cruces por cero*:
 
-  ![alt text](<Screenshot 2025-04-13 at 21.01.38.jpg>)
-
+  ![alt text](<Screenshot 2025-04-15 at 22.52.57.jpg>)
+ 
+ Por algún motivo, la representación del *zcr* queda graficada de esa manera.
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
