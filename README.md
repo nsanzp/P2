@@ -186,6 +186,7 @@ Ejercicios
     **************** Summary ****************
   
   Recall V:477.71/495.55 96.40%   Precision V:477.71/541.05 88.29%   F-score V (2)  : 94.66%
+  
   Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
 
   ===> TOTAL: 92.578%
@@ -211,7 +212,7 @@ Ejercicios
   3.8:	===> TOTAL: 92.477%
 
   3.9:	===> TOTAL: 92.339%
-  
+
   4:	===> TOTAL: 92.179%
 
   Con lo cual, el valor de interés que hace mejorar el sistema es de *alpha0 = 3.7*.
