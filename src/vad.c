@@ -23,10 +23,10 @@ const char *state2str(VAD_STATE st) {
 
 /* Define a datatype with interesting features */
 typedef struct {
-  //float zcr;
+  float zcr;
   float p;
-  //float am;
-  float threshold0;
+  float am;
+  //float threshold0;
 } Features;
 
 /* 
@@ -44,8 +44,9 @@ Features compute_features(const float *x, int N) { //modificar esto.
    * For the moment, compute random value between 0 and 1 
    */
   Features feat;
-  float N_init = 0.18 / (FRAME_TIME * 1e-3);//18 trames.
-  feat.threshold0 = compute_power(x,N_init);
+  //float N_init = 0.18 / (FRAME_TIME * 1e-3);//18 trames.
+  //eat.threshold0 = compute_power(x,N_init);
+   // feat.zcr = compute_zcr(x,N,)
    feat.p = compute_power(x,N);//media de las potencias en decibelios
                                 //(mejor resultado con potencia en dB).
   //feat.zcr = feat.p = feat.am = (float) rand()/RAND_MAX;
@@ -66,10 +67,14 @@ VAD_DATA * vad_open(float rate) {
   vad_data->k0=0;//nivel de referencia del ruido de fondo.
   vad_data->k1=0;//nivel de posibilidad de voz. (k0+alpha1)
   vad_data->k2=0;//nivel de confirmación de voz. (k1+alpha2)
-  vad_data->alpha1=5;
+  vad_data->alpha1=0;
   vad_data->alpha2=0;
-  vad_data->lmin_sil=0.18;//segundos
-  vad_data->lmin_voz=1.6;//segundos
+  vad_data->lmin_sil=7;//trames
+  vad_data->lmin_voz=2;//trames
+  vad_data->n_trames=0;
+  vad_data->pot_acumulada=0;
+  vad_data->maybe_voice=0;
+  vad_data->maybe_silence=0;
   return vad_data;
 }
 
@@ -104,30 +109,44 @@ VAD_STATE vad(VAD_DATA *vad_data, float *x, float alpha0) {
 
   //k1 = 10 dB; por debajo del mínimo de potencia de sonidos fricativos sordos, en nuestro caso 10,37 dB
   //k2 duración máxima de espera. 0,312s
-
+  vad_data->n_trames++;
   switch (vad_data->state) { 
   case ST_INIT:
+  if(vad_data->n_trames<11){
+    vad_data->pot_acumulada+=f.p;
+    return ST_SILENCE;
+  } else if (vad_data->n_trames == 11){
+    vad_data->k0 = (vad_data->pot_acumulada)/10+alpha0;
+    vad_data->k1 = (vad_data->pot_acumulada)/10+3*alpha0;
     vad_data->state = ST_SILENCE;
-    vad_data->k0 = f.threshold0;
-    vad_data->k1 = vad_data->k0 + vad_data->alpha1;
-    vad_data->k2 = vad_data->k1 + vad_data->alpha2;
+  }
+    //vad_data->state = ST_SILENCE;
+    //vad_data->k0 = f.threshold0;
+    //vad_data->k1 = vad_data->k0 + vad_data->alpha1;
+   //vad_data->k2 = vad_data->k1 + vad_data->alpha2;
     break;
 
   case ST_SILENCE:
-    if (f.p > vad_data->k1){
-      vad_data->state = ST_UNDEF;
-        if (f.p > vad_data->k2){
-          vad_data->state = ST_VOICE;
-        }
+    if (f.p > vad_data->k1) {
+      vad_data->maybe_voice++;
+    } else {
+      vad_data->maybe_voice=0;
+    }
+
+    if (vad_data->maybe_voice==vad_data->lmin_voz){
+      vad_data->state=ST_VOICE;
     }
     break;
 
   case ST_VOICE: 
-  if (f.p < vad_data->k2){
-    vad_data->state = ST_UNDEF;
-      if (f.p < vad_data->k1){
-        vad_data->state = ST_SILENCE;
-      }
+  if (f.p < vad_data->k0) {
+    vad_data->maybe_silence++;
+  } else {
+    vad_data->maybe_silence=0;
+  }
+
+  if (vad_data->maybe_silence==vad_data->lmin_sil){
+    vad_data->state=ST_SILENCE;
   }
     break;
 
