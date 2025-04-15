@@ -146,7 +146,7 @@ Ejercicios
 
   ![alt text](<Screenshot 2025-04-15 at 22.52.57.jpg>)
  
- Por algún motivo, la representación del *zcr* queda graficada de esa manera.
+  Por algún motivo, la representación del *zcr* queda graficada de esa manera.
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
