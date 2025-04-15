@@ -189,7 +189,7 @@ Ejercicios
   
   Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
 
-  ===> TOTAL: 92.578%
+  ===> TOTAL: *92.578%*
 
   Se ha creado un script denominado *fot-li* en el que se va evaluando el sistema para diferentes parámetros alpha0. Tras intentar valores de 3 a 4 con un incremento de 0.1, se ve la siguiente clasificación:
   
