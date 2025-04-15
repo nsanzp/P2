@@ -192,7 +192,7 @@ Ejercicios
 - Si ha usado `docopt_c` para realizar la gestión de las opciones y argumentos del programa `vad`, inserte
   una captura de pantalla en la que se vea el mensaje de ayuda del programa.
 
-  Se ha usado `docopt_c` para que poder pasar el valor de alpha0 y, si no se llena el campo, se ponga un 5 por defetco. 
+  Se ha usado `docopt_c` para que poder pasar el valor de alpha0 y, si no se llena el campo, se ponga un 5 por defecto. 
   A continuación, se adjunta una captura con el mensaje de ayuda del programa:
 
   ![alt text](<Screenshot 2025-04-15 at 22.13.36.jpg>)
