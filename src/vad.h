@@ -17,7 +17,8 @@ typedef struct {
   unsigned int frame_length;
   float last_feature; /* for debuggin purposes */
 
-  float p0, k0, k1, alpha1, k2, alpha2, lmin_sil, lmin_voz, n_trames, pot_acumulada, maybe_voice, maybe_silence;//añadido.
+  //mis parámetros
+  float k0, k1, lmin_sil, lmin_voz, n_trames, pot_acumulada, maybe_voice, maybe_silence;
 } VAD_DATA;
 
 /* Call this function before using VAD: 

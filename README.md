@@ -181,6 +181,29 @@ Ejercicios
   continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
   el resumen).
 
+  Tras ejecutar el comando `scripts/vad_evaluation.pl db.v4/*/*lab` en la terminal, se ha obtenido este resultado:
+
+    **************** Summary ****************
+  Recall V:477.71/495.55 96.40%   Precision V:477.71/541.05 88.29%   F-score V (2)  : 94.66%
+  Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
+  ===> TOTAL: 92.578%
+
+  Se ha creado un script denominado *fot-li* en el que se va evaluando el sistema para diferentes parámetros alpha0. Tras intentar valores de 3 a 4 con un incremento de 0.1, se ve la siguiente clasificación:
+  
+  3:	===> TOTAL: 91.849%
+  3.1:	===> TOTAL: 92.007%
+  3.2:	===> TOTAL: 92.162%
+  3.3:	===> TOTAL: 92.189%
+  3.4:	===> TOTAL: 92.384%
+  3.5:	===> TOTAL: 92.370%
+  3.6:	===> TOTAL: 92.421%
+  3.7:	===> TOTAL: 92.578%
+  3.8:	===> TOTAL: 92.477%
+  3.9:	===> TOTAL: 92.339%
+  4:	===> TOTAL: 92.179%
+
+  Con lo cual, el valor de interés que hace mejorar el sistema es de *alpha0 = 3.7*.
+
 
 ### Trabajos de ampliación
 
