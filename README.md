@@ -165,7 +165,7 @@ Ejercicios
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
   automática conseguida para el fichero grabado al efecto.
 
-  Tras la realización del código, se ha ejecutado el vad y se ha usado `wavesurfer` para hacer la comparativa del *etiquetado manual*, visto anteriormente, y el *etiquetado automático*.
+  Tras la realización del código, se ha ejecutado el `vad` y se ha usado `wavesurfer` para hacer la comparativa del *etiquetado manual*, visto anteriormente, y el *etiquetado automático*.
 
   ![alt text](<Screenshot 2025-04-15 at 21.10.39.jpg>)
 
