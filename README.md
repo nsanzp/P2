@@ -153,7 +153,11 @@ Ejercicios
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
 
+Al principio de toda la grafica de potencia se obtiene un valor de -60 dB que va aumentando hasta los tramos en los que la señal se corresponde con voz en los que suele haber un valor mayor a -50 dB de potencia.
+
 	* Duración mínima razonable de los segmentos de voz y silencio.
+
+ La duración minima de los segméntos de voz es entre 0,1 y 0,2 segundos aproximadamente aunque hay segméntos que son mas largos, mientras que la duración minima de los segméntos de silencio es de 0,1 segundos aunqur hay un segménto mucho mas largo de alrededor de 0,8 segundos
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
 
