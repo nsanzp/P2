@@ -161,6 +161,8 @@ Al principio de toda la grafica de potencia se obtiene un valor de -60 dB que va
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
 
+ 
+
 
 ### Desarrollo del detector de actividad vocal
 
