@@ -153,14 +153,15 @@ Ejercicios
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
 
-Al principio de toda la grafica de potencia se obtiene un valor de -60 dB que va aumentando hasta los tramos en los que la señal se corresponde con voz en los que suele haber un valor mayor a -50 dB de potencia.
+A la vista de la gráfica, un incremento de entre 6 y 10 dB respecto al nivel de potencia del silencio inicial se considera adecuado para asegurar que un segmento de la señal contiene voz. Este margen permite diferenciar claramente la voz de posibles ruidos o fluctuaciones del fondo.
 
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
- La duración minima de los segméntos de voz es entre 0,1 y 0,2 segundos aproximadamente aunque hay segméntos que son mas largos, mientras que la duración minima de los segméntos de silencio es de 0,1 segundos aunqur hay un segménto mucho mas largo de alrededor de 0,8 segundos
+ La duración minima de los segméntos de voz es de 0,2 segundos aproximadamente, mientras que la duración minima de los segméntos de silencio es alrededor de 0,3 segundos aunque hay segmentos mas largos.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
 
+Poodemos ver que las zonas de silencio tienen una ZCR baja porque hay poca variación mientras que las zonas con habla tienen una ZCR mas alta ya que la voz humana genera mayor variación.
  
 
 
@@ -180,8 +181,7 @@ Al principio de toda la grafica de potencia se obtiene un valor de -60 dB que va
 
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
 
-  Vistos los resultados, se ve que el *etiquetado automático* es bastante aleatorio. 
-  No es algo que sorprenda, pues al fin y al cabo va marcando S o V siguiendo un criterio poco rígido.
+La gráfica muestra diferencias entre el etiquetado manual y automático. El detector automático anticipa el inicio de la voz y recorta el final de algunos segmentos hablados. También detecta voz en áreas de silencio o ruido de fondo, lo que indica una sobreestimación. Estas discrepancias sugieren la necesidad de ajustar los umbrales de energía o la tasa de cruces por cero en el sistema automático.
 
 - Evalúe los resultados sobre la base de datos `db.v4` con el script `vad_evaluation.pl` e inserte a 
   continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
