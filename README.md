@@ -161,7 +161,7 @@ A la vista de la gráfica, un incremento de entre 6 y 10 dB respecto al nivel de
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
 
-Poodemos ver que las zonas de silencio tienen una ZCR baja porque hay poca variación mientras que las zonas con habla tienen una ZCR mas alta ya que la voz humana genera mayor variación.
+Podemos ver que las zonas de silencio tienen una ZCR baja porque hay poca variación mientras que las zonas con habla tienen una ZCR mas alta ya que la voz humana genera mayor variación.
  
 
 
