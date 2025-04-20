@@ -11,6 +11,5 @@ Options:
    -w FILE, --output-wav=FILE  WAVE file with silences cleared
    -v, --verbose  Show debug information
    -h, --help     Show this screen
-   -0 FLOAT, --alpha0=FLOAT  Gives value 5 [default: 5]
    --version      Show the version of the project
    -0 FLOAT, --alpha0=FLOAT  input value alpha0 [default: 5]
