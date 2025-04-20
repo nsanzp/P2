@@ -189,13 +189,13 @@ La gráfica muestra diferencias entre el etiquetado manual y automático. El det
 
   Tras ejecutar el comando `scripts/vad_evaluation.pl db.v4/*/*lab` en la terminal, se ha obtenido este resultado:
 
-    **************** Summary ****************
-  
-  Recall V:477.71/495.55 96.40%   Precision V:477.71/541.05 88.29%   F-score V (2)  : 94.66%
-  
-  Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
+  **************** Summary ****************
 
-  ===> TOTAL: **92.578%**
+  Recall V:464.09/495.55 93.65%   Precision V:464.09/513.11 90.45%   F-score V (2)  : 92.99%
+
+  Recall S:272.14/321.17 84.73%   Precision S:272.14/303.60 89.64%   F-score S (1/2): 88.61%
+
+  ===> TOTAL: **90.776%**
 
   Se ha creado un script denominado *fot-li* en el que se va evaluando el sistema para diferentes parámetros alpha0. Tras intentar valores de 3 a 4 con un incremento de 0.1, se ve la siguiente clasificación:
   
@@ -222,6 +222,16 @@ La gráfica muestra diferencias entre el etiquetado manual y automático. El det
   4:	===> TOTAL: 92.179%
 
   Con lo cual, el valor de interés que hace mejorar el sistema es de **alpha0 = 3.7**.
+
+  Volviendo a ejecutar, obtenemos el siguiente resumen:
+
+  **************** Summary ****************
+  
+  Recall V:477.71/495.55 96.40%   Precision V:477.71/541.05 88.29%   F-score V (2)  : 94.66%
+  
+  Recall S:257.83/321.17 80.28%   Precision S:257.83/275.66 93.53%   F-score S (1/2): 90.54%
+
+  ===> TOTAL: **92.578%**
 
 
 ### Trabajos de ampliación
